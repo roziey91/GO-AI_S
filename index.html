@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alat Domestik Tradisional Melayu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans:wght@300;400;600&display=swap');
+        
+        .script-font {
+            font-family: 'Amiri', serif;
+        }
+        
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .slide-in {
+            animation: slideIn 1.5s ease-out;
+        }
+        
+        .zoom-in {
+            animation: zoomIn 2s ease-in-out;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #8B4513;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #8B4513; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .scene {
+            display: none;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .scene.active {
+            display: flex;
+        }
+        
+        .village-bg {
+            background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #F0E68C 100%);
+        }
+        
+        .traditional-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #8B4513 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #D2691E 2px, transparent 2px);
+            background-size: 50px 50px;
+        }
+        
+        .wood-texture {
+            background: linear-gradient(45deg, #8B4513, #A0522D, #CD853F);
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            background: #8B4513;
+            transform: scale(1.2);
+        }
+        
+        .tool-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid #8B4513;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .ornament {
+            width: 60px;
+            height: 60px;
+            background: #8B4513;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-900 overflow-hidden">
+    <!-- Scene 1: Pembukaan -->
+    <div class="scene active village-bg" id="scene1">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-8">
+            <div class="fade-in">
+                <h1 class="script-font text-6xl md:text-8xl font-bold text-white mb-8 drop-shadow-2xl">
+                    الأدوات المنزلية التقليدية الملايوية
+                </h1>
+                <h2 class="text-4xl md:text-6xl font-bold text-yellow-200 mb-4 slide-in">
+                    Alat Domestik Tradisional Melayu
+                </h2>
+                <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto slide-in opacity-90">
+                    Warisan budaya yang memperkaya kehidupan harian masyarakat Melayu
+                </p>
+            </div>
+            
+            <!-- Decorative elements -->
+            <div class="absolute top-10 left-10 float-animation">
+                <svg width="80" height="80" viewBox="0 0 100 100" class="text-yellow-300 opacity-70">
+                    <path d="M50 10 L60 40 L90 40 L68 58 L78 88 L50 70 L22 88 L32 58 L10 40 L40 40 Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="absolute bottom-10 right-10 float-animation" style="animation-delay: 1s;">
+                <svg width="60" height="60" viewBox="0 0 100 100" class="text-yellow-300 opacity-70">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <path d="M30 50 Q50 30 70 50 Q50 70 30 50" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 2: Rehal -->
+    <div class="scene traditional-pattern" id="scene2">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-200 opacity-90"></div>
+        <div class="relative z-10 flex items-center justify-center w-full h-full px-8">
+            <div class="tool-card max-w-4xl zoom-in">
+                <div class="ornament">
+                    <svg width="30" height="30" viewBox="0 0 100 100" class="text-white">
+                        <rect x="20" y="40" width="60" height="20" fill="currentColor"/>
+                        <rect x="10" y="35" width="80" height="5" fill="currentColor"/>
+                        <rect x="10" y="60" width="80" height="5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h2 class="script-font text-5xl font-bold text-center text-amber-800 mb-6">Rehal</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="zoom-in" style="animation-delay: 0.5s;">
+                        <div class="wood-texture rounded-lg p-8 text-center">
+                            <svg width="200" height="150" viewBox="0 0 200 150" class="mx-auto">
+                                <!-- Rehal base -->
+                                <rect x="20" y="100" width="160" height="30" fill="#8B4513" rx="5"/>
+                                <!-- Rehal stand -->
+                                <rect x="40" y="70" width="120" height="40" fill="#A0522D" rx="3"/>
+                                <!-- Book rest -->
+                                <rect x="50" y="40" width="100" height="35" fill="#CD853F" rx="2"/>
+                                <!-- Decorative carvings -->
+                                <circle cx="70" cy="85" r="3" fill="#654321"/>
+                                <circle cx="90" cy="85" r="3" fill="#654321"/>
+                                <circle cx="110" cy="85" r="3" fill="#654321"/>
+                                <circle cx="130" cy="85" r="3" fill="#654321"/>
+                                <!-- Traditional pattern -->
+                                <path d="M60 50 Q75 45 90 50 Q105 45 120 50" stroke="#654321" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="slide-in" style="animation-delay: 1s;">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            <strong>Rehal</strong> adalah alat tradisional untuk meletakkan Al-Quran atau kitab-kitab agama. 
+                            Diperbuat daripada kayu dengan ukiran halus yang menunjukkan kemahiran tukang kayu Melayu.
+                        </p>
+                        <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+                            <p class="text-amber-800 font-medium">
+                                "Ukiran flora pada rehal melambangkan keindahan alam ciptaan Allah"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 3: Kukuran -->
+    <div class="scene" id="scene3" style="background: linear-gradient(135deg, #90EE90, #98FB98);">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="relative z-10 flex items-center justify-center w-full h-full px-8">
+            <div class="tool-card max-w-4xl zoom-in">
+                <div class="ornament">
+                    <svg width="30" height="30" viewBox="0 0 100 100" class="text-white">
+                        <rect x="30" y="20" width="40" height="60" fill="currentColor" rx="5"/>
+                        <rect x="20" y="30" width="60" height="5" fill="currentColor"/>
+                        <rect x="20" y="45" width="60" height="5" fill="currentColor"/>
+                        <rect x="20" y="60" width="60" height="5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h2 class="script-font text-5xl font-bold text-center text-green-800 mb-6">Kukuran</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="slide-in">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            <strong>Kukuran</strong> atau pemarut kelapa adalah alat penting dalam dapur tradisional Melayu. 
+                            Digunakan untuk memarut kelapa bagi menghasilkan santan untuk masakan.
+                        </p>
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <p class="text-green-800 font-medium">
+                                "Setiap rumah Melayu mesti ada kukuran untuk keperluan memasak harian"
+                            </p>
+                        </div>
+                    </div>
+                    <div class="zoom-in" style="animation-delay: 0.5s;">
+                        <div class="bg-gradient-to-br from-amber-100 to-orange-200 rounded-lg p-8 text-center">
+                            <svg width="200" height="150" viewBox="0 0 200 150" class="mx-auto">
+                                <!-- Kukuran base -->
+                                <rect x="40" y="80" width="120" height="50" fill="#8B4513" rx="10"/>
+                                <!-- Grater surface -->
+                                <rect x="50" y="60" width="100" height="30" fill="#C0C0C0" rx="3"/>
+                                <!-- Holes pattern -->
+                                <circle cx="70" cy="70" r="2" fill="#808080"/>
+                                <circle cx="85" cy="70" r="2" fill="#808080"/>
+                                <circle cx="100" cy="70" r="2" fill="#808080"/>
+                                <circle cx="115" cy="70" r="2" fill="#808080"/>
+                                <circle cx="130" cy="70" r="2" fill="#808080"/>
+                                <circle cx="70" cy="80" r="2" fill="#808080"/>
+                                <circle cx="85" cy="80" r="2" fill="#808080"/>
+                                <circle cx="100" cy="80" r="2" fill="#808080"/>
+                                <circle cx="115" cy="80" r="2" fill="#808080"/>
+                                <circle cx="130" cy="80" r="2" fill="#808080"/>
+                                <!-- Coconut pieces -->
+                                <circle cx="160" cy="40" r="8" fill="white" class="float-animation"/>
+                                <circle cx="175" cy="35" r="6" fill="white" class="float-animation" style="animation-delay: 0.5s;"/>
+                                <circle cx="170" cy="50" r="5" fill="white" class="float-animation" style="animation-delay: 1s;"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 4: Acuan Kuih -->
+    <div class="scene" id="scene4" style="background: linear-gradient(135deg, #FFB6C1, #FFC0CB);">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="relative z-10 flex items-center justify-center w-full h-full px-8">
+            <div class="tool-card max-w-4xl zoom-in">
+                <div class="ornament">
+                    <svg width="30" height="30" viewBox="0 0 100 100" class="text-white">
+                        <rect x="20" y="30" width="60" height="40" fill="currentColor" rx="5"/>
+                        <rect x="30" y="20" width="40" height="20" fill="currentColor" rx="3"/>
+                        <circle cx="35" cy="45" r="3" fill="white"/>
+                        <circle cx="50" cy="45" r="3" fill="white"/>
+                        <circle cx="65" cy="45" r="3" fill="white"/>
+                    </svg>
+                </div>
+                <h2 class="script-font text-5xl font-bold text-center text-pink-800 mb-6">Acuan Kuih</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="zoom-in" style="animation-delay: 0.5s;">
+                        <div class="bg-gradient-to-br from-yellow-100 to-orange-200 rounded-lg p-8 text-center">
+                            <svg width="200" height="150" viewBox="0 0 200 150" class="mx-auto">
+                                <!-- Acuan base -->
+                                <rect x="30" y="80" width="140" height="40" fill="#8B4513" rx="5"/>
+                                <!-- Molds -->
+                                <circle cx="60" cy="70" r="15" fill="#CD853F"/>
+                                <circle cx="100" cy="70" r="15" fill="#CD853F"/>
+                                <circle cx="140" cy="70" r="15" fill="#CD853F"/>
+                                <!-- Patterns in molds -->
+                                <path d="M55 70 Q60 65 65 70 Q60 75 55 70" fill="#654321"/>
+                                <path d="M95 70 Q100 65 105 70 Q100 75 95 70" fill="#654321"/>
+                                <path d="M135 70 Q140 65 145 70 Q140 75 135 70" fill="#654321"/>
+                                <!-- Finished kuih -->
+                                <circle cx="60" cy="40" r="12" fill="#FFD700" class="float-animation"/>
+                                <circle cx="100" cy="35" r="12" fill="#FF69B4" class="float-animation" style="animation-delay: 0.5s;"/>
+                                <circle cx="140" cy="40" r="12" fill="#98FB98" class="float-animation" style="animation-delay: 1s;"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="slide-in" style="animation-delay: 1s;">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            <strong>Acuan Kuih</strong> digunakan untuk membentuk kuih-muih tradisional Melayu. 
+                            Setiap acuan mempunyai corak dan bentuk yang unik, menghasilkan kuih yang cantik dan seragam.
+                        </p>
+                        <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-500">
+                            <p class="text-pink-800 font-medium">
+                                "Corak bunga dan daun pada acuan melambangkan kesuburan dan kemakmuran"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 5: Jebak Puyuh -->
+    <div class="scene" id="scene5" style="background: linear-gradient(135deg, #228B22, #32CD32);">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="relative z-10 flex items-center justify-center w-full h-full px-8">
+            <div class="tool-card max-w-4xl zoom-in">
+                <div class="ornament">
+                    <svg width="30" height="30" viewBox="0 0 100 100" class="text-white">
+                        <rect x="20" y="40" width="60" height="30" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <rect x="15" y="35" width="70" height="5" fill="currentColor"/>
+                        <circle cx="75" cy="25" r="8" fill="currentColor"/>
+                        <circle cx="77" cy="23" r="2" fill="white"/>
+                    </svg>
+                </div>
+                <h2 class="script-font text-5xl font-bold text-center text-green-800 mb-6">Jebak Puyuh</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="slide-in">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            <strong>Jebak Puyuh</strong> adalah alat tradisional untuk menangkap burung puyuh. 
+                            Diperbuat daripada buluh dan rotan, menunjukkan kepandaian orang Melayu dalam membuat perangkap.
+                        </p>
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <p class="text-green-800 font-medium">
+                                "Jebak ini dibuat dengan teliti supaya tidak mencederakan burung"
+                            </p>
+                        </div>
+                    </div>
+                    <div class="zoom-in" style="animation-delay: 0.5s;">
+                        <div class="bg-gradient-to-br from-green-100 to-yellow-200 rounded-lg p-8 text-center">
+                            <svg width="200" height="150" viewBox="0 0 200 150" class="mx-auto">
+                                <!-- Trap base -->
+                                <rect x="40" y="90" width="120" height="40" fill="#8B4513" rx="5"/>
+                                <!-- Bamboo bars -->
+                                <rect x="50" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="60" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="70" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="80" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="90" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="100" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="110" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="120" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="130" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="140" y="70" width="3" height="30" fill="#DEB887"/>
+                                <rect x="150" y="70" width="3" height="30" fill="#DEB887"/>
+                                <!-- Trap door -->
+                                <rect x="50" y="65" width="100" height="8" fill="#CD853F" rx="2"/>
+                                <!-- Bird -->
+                                <ellipse cx="170" cy="50" rx="8" ry="6" fill="#8B4513" class="float-animation"/>
+                                <circle cx="172" cy="48" r="2" fill="black"/>
+                                <path d="M165 52 Q170 55 175 52" stroke="#654321" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 6: Penutup -->
+    <div class="scene" id="scene6" style="background: linear-gradient(135deg, #4B0082, #8A2BE2, #DDA0DD);">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-8">
+            <div class="fade-in mb-8">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8 max-w-4xl">
+                    <!-- Mini icons of all tools -->
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                        <svg width="60" height="60" viewBox="0 0 100 100" class="mx-auto text-white">
+                            <rect x="20" y="40" width="60" height="20" fill="currentColor"/>
+                        </svg>
+                        <p class="text-white text-sm mt-2">Rehal</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                        <svg width="60" height="60" viewBox="0 0 100 100" class="mx-auto text-white">
+                            <rect x="30" y="20" width="40" height="60" fill="currentColor" rx="5"/>
+                        </svg>
+                        <p class="text-white text-sm mt-2">Kukuran</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                        <svg width="60" height="60" viewBox="0 0 100 100" class="mx-auto text-white">
+                            <rect x="20" y="30" width="60" height="40" fill="currentColor" rx="5"/>
+                        </svg>
+                        <p class="text-white text-sm mt-2">Acuan Kuih</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                        <svg width="60" height="60" viewBox="0 0 100 100" class="mx-auto text-white">
+                            <rect x="20" y="40" width="60" height="30" fill="none" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                        <p class="text-white text-sm mt-2">Jebak Puyuh</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg backdrop-filter backdrop-blur-sm md:col-span-1 col-span-2">
+                        <svg width="60" height="60" viewBox="0 0 100 100" class="mx-auto text-white">
+                            <path d="M50 10 L60 40 L90 40 L68 58 L78 88 L50 70 L22 88 L32 58 L10 40 L40 40 Z" fill="currentColor"/>
+                        </svg>
+                        <p class="text-white text-sm mt-2">Warisan</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="typewriter text-4xl md:text-6xl font-bold text-white mb-8 max-w-4xl">
+                Mari kita hargai warisan ini
+            </div>
+            
+            <div class="slide-in" style="animation-delay: 3s;">
+                <p class="text-xl md:text-2xl text-yellow-200 max-w-3xl mx-auto mb-8">
+                    Alat-alat tradisional ini bukan sekadar benda, tetapi lambang kebijaksanaan dan kemahiran nenek moyang kita
+                </p>
+                <div class="script-font text-2xl text-white opacity-80">
+                    "Warisan yang dipelihara akan kekal abadi"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation flex items-center bg-black bg-opacity-50 px-6 py-3 rounded-full">
+        <button onclick="previousScene()" class="text-white hover:text-yellow-300 mr-4 transition-colors">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </button>
+        
+        <div class="flex">
+            <div class="nav-dot active" onclick="goToScene(1)"></div>
+            <div class="nav-dot" onclick="goToScene(2)"></div>
+            <div class="nav-dot" onclick="goToScene(3)"></div>
+            <div class="nav-dot" onclick="goToScene(4)"></div>
+            <div class="nav-dot" onclick="goToScene(5)"></div>
+            <div class="nav-dot" onclick="goToScene(6)"></div>
+        </div>
+        
+        <button onclick="nextScene()" class="text-white hover:text-yellow-300 ml-4 transition-colors">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Audio Control -->
+    <div class="fixed top-4 right-4 z-1000">
+        <button onclick="toggleAudio()" class="bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition-all">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" id="audioIcon">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        let currentScene = 1;
+        const totalScenes = 6;
+        let audioPlaying = false;
+
+        function goToScene(sceneNumber) {
+            // Hide current scene
+            document.getElementById(`scene${currentScene}`).classList.remove('active');
+            
+            // Show new scene
+            document.getElementById(`scene${sceneNumber}`).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === sceneNumber);
+            });
+            
+            currentScene = sceneNumber;
+            
+            // Trigger animations for the new scene
+            setTimeout(() => {
+                const activeScene = document.getElementById(`scene${sceneNumber}`);
+                const animatedElements = activeScene.querySelectorAll('.fade-in, .slide-in, .zoom-in, .typewriter');
+                animatedElements.forEach(element => {
+                    element.style.animation = 'none';
+                    element.offsetHeight; // Trigger reflow
+                    element.style.animation = null;
+                });
+            }, 100);
+        }
+
+        function nextScene() {
+            if (currentScene < totalScenes) {
+                goToScene(currentScene + 1);
+            }
+        }
+
+        function previousScene() {
+            if (currentScene > 1) {
+                goToScene(currentScene - 1);
+            }
+        }
+
+        function toggleAudio() {
+            const audioIcon = document.getElementById('audioIcon');
+            audioPlaying = !audioPlaying;
+            
+            if (audioPlaying) {
+                audioIcon.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
+            } else {
+                audioIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+            }
+        }
+
+        // Auto-advance slides (optional)
+        let autoAdvance = false;
+        
+        function startAutoAdvance() {
+            if (autoAdvance) {
+                setInterval(() => {
+                    if (currentScene < totalScenes) {
+                        nextScene();
+                    } else {
+                        goToScene(1);
+                    }
+                }, 8000);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextScene();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousScene();
+            } else if (e.key >= '1' && e.key <= '6') {
+                e.preventDefault();
+                goToScene(parseInt(e.key));
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextScene(); // Swipe left - next scene
+                } else {
+                    previousScene(); // Swipe right - previous scene
+                }
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            goToScene(1);
+            // startAutoAdvance(); // Uncomment to enable auto-advance
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98328bf285bdb71c',t:'MTc1ODU1MTkxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
